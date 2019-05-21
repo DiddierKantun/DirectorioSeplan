@@ -25,50 +25,58 @@ class LoginController extends Controller
         $usuarios = Usuario::join('perfil', 'usuario.id_perfil', 'perfil.id_perfil')->where('usuario.correo_usuario', '=', $correo_usuario)->get();
         $passbd = Crypt::decrypt($usuarios->first()->contrasenia);
 
-        echo $passbd;
-        echo $contrasenia;
-
         if($usuarios->count()>=1){
 
-            if ($contrasenia == $passbd) {
 
-                if ($usuarios->first()->id_perfil == 1) {
+            if ($usuarios->first()->estatus == 1) {
+                
+                if( $usuarios->first()->correo_usuario == $correo_usuario){
 
-                    $_SESSION['nombre'] = $usuarios->first()->nombre_usuario;
-                    $_SESSION['apepat'] = $usuarios->first()->apepat_usuario;
-                    $_SESSION['apemat'] = $usuarios->first()->apemat_usuario;
-                    $_SESSION['perfil'] = $usuarios->first()->nombre_perfil;
+                    if ($contrasenia == $passbd) {
 
-                    return redirect()->route('welcome');
+                        if ($usuarios->first()->id_perfil == 1) {
 
-                } else if ($usuarios->first()->id_perfil == 2) {
+                            $_SESSION['nombre'] = $usuarios->first()->nombre_usuario;
+                            $_SESSION['apepat'] = $usuarios->first()->apepat_usuario;
+                            $_SESSION['apemat'] = $usuarios->first()->apemat_usuario;
+                            $_SESSION['perfil'] = $usuarios->first()->nombre_perfil;
 
-                    $_SESSION['nombre'] = $usuarios->first()->nombre_usuario;
-                    $_SESSION['apepat'] = $usuarios->first()->apepat_usuario;
-                    $_SESSION['apemat'] = $usuarios->first()->apemat_usuario;
-                    $_SESSION['perfil'] = $usuarios->first()->nombre_perfil;
+                            return redirect()->route('welcome');
+                        } else if ($usuarios->first()->id_perfil == 2) {
 
-                    return redirect()->route('directorio.index');
+                            $_SESSION['nombre'] = $usuarios->first()->nombre_usuario;
+                            $_SESSION['apepat'] = $usuarios->first()->apepat_usuario;
+                            $_SESSION['apemat'] = $usuarios->first()->apemat_usuario;
+                            $_SESSION['perfil'] = $usuarios->first()->nombre_perfil;
 
-                } else {
+                            return redirect()->route('directorio.index');
+                        } else {
 
+                            return view('login');
+                        }
+                    } else {
+
+                        Session::flash('message', 'Por favor verifique su contraseña');
+                        return view('login');
+                    } 
+                }else{
+
+                    Session::flash('message', 'Por favor verifique su correo electronico');
                     return view('login');
+
                 }
 
-             } else {
+            }else{
 
-                Session::flash('message', 'Por favor verifique su contraseña');
+                Session::flash('message', 'El usuario ingresado no existe');
                 return view('login');
-
-             }            
+            }                                 
         }
         else{
 
-            Session::flash('message', 'Por favor verifique su correo electronico');
+            Session::flash('message', 'Se a producido un error');
             return view('login');
-        }
-
-        
+        }       
     }
 
     public function logout()
