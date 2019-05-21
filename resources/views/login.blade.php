@@ -53,7 +53,7 @@
                   <div class="alert alert-danger">{{ Session::get('message') }}</div>
                   @endif
 
-                  <div class="card-title">Directorio seplan</div>
+                  <div class="card-title">Directorio Web Seplan</div>
                   <div class="form-group">
                     <label class="form-label">Correo electronico</label>
                     <input name="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar correo electronico">
