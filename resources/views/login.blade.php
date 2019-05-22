@@ -10,10 +10,10 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="icon" href="/assets/logoseplan.png" type="image/x-icon">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/logoseplan.png">
     <!-- Generated: 2019-04-04 16:57:42 +0200 -->
-    <title>Login - tabler.github.io - a responsive, flat and full featured admin template</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
     <script src="./assets/js/require.min.js"></script>
@@ -43,7 +43,7 @@
           <div class="row">
             <div class="col col-login mx-auto">
               <div class="text-center mb-6">
-                <img src="/assets/demo/brand/tabler.svg" class="h-6" alt="">
+                <img src="/assets/logo_seplan.png" class="h-8" alt="">
               </div>
               <form class="card" action="{{ route('login.index') }}" method="POST">
               {{ csrf_field() }}
@@ -61,7 +61,7 @@
                   <div class="form-group">
                     <label class="form-label">
                       Contraseña
-                      
+
                     </label>
                     <input name="contra" type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña">
                   </div>
@@ -81,5 +81,5 @@
         </div>
       </div>
     </div>
-  
+
 </body></html>

@@ -1,8 +1,9 @@
 @extends('layout.admin')
 
+
 @section('contenido')
 <div class="col-12">
-                <form action="https://httpbin.org/post" method="post" class="card">
+                <form action="" method="" class="card">
                   <div class="card-header">
                   <h3 class="card-title">Filtros</h3>
                   </div>
@@ -29,9 +30,10 @@
                     <button type="submit" class="btn btn-success ml-auto">Exportar excel</button>
                 </div>
               </form>
-              
+
             </div>
-         <div class="col-12">
+
+<div class="col-12">
                 <div class="card">
                   <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><table class="table card-table table-vcenter text-nowrap datatable dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
@@ -63,12 +65,12 @@
                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nombre: activate to sort column ascending" style="width: 130.88px;">Correo personal</th>
                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nombre: activate to sort column ascending" style="width: 130.88px;">Telefono institucional</th>
                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nombre: activate to sort column ascending" style="width: 130.88px;">Telefono personal</th>
-                        </tr>
+                    </tr>
                       </thead>
-                      <tbody>                    
-                       <?php echo $cadena; ?>
+                      <tbody>
+                          <?php echo $cadena; ?>
                       </tbody>
-                    </table>                    
+                    </table>
                     <script>
                       require(['datatables', 'jquery'], function(datatable, $) {
                       	    $('.datatable').DataTable();
@@ -77,7 +79,4 @@
                   </div>
                 </div>
               </div>
-          </div>         
-        </div>
-      </div>
-      @stop
+@stop

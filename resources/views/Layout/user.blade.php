@@ -21,8 +21,8 @@ if(isset($_SESSION['nombre']) && isset($_SESSION['apepat']) && isset($_SESSION['
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-    <link rel="icon" href="/assets/logoseplan.png" type="image/x-icon"/>
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/logoseplan.png" />
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />
     <!-- Generated: 2019-04-04 16:57:42 +0200 -->
     <title> </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -45,7 +45,9 @@ if(isset($_SESSION['nombre']) && isset($_SESSION['apepat']) && isset($_SESSION['
     <!-- Input Mask Plugin -->
     <script src="/assets/plugins/input-mask/plugin.js"></script>
     <!-- Datatables Plugin -->
-    <script src="/assets/plugins/datatables/plugin.js"></script>
+    <script src="/assets/js/datatables.js"></script>
+    <script src="/assets/js/jz.jszip.min.js"></script>
+    <link href="/assets/css/datatables.css" rel="stylesheet">
   </head>
   <body class="">
     <div class="page">
@@ -62,7 +64,7 @@ if(isset($_SESSION['nombre']) && isset($_SESSION['apepat']) && isset($_SESSION['
                 </div>
                 <div class="dropdown">
                   <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
-                    <span class="avatar" style="background-image"><i class="fe fe-user"></i></span>
+                    <span class="avatar" style="background-image: url(/assets/demo/faces/female/25.jpg)"></span>
                     <span class="ml-2 d-none d-lg-block">
                       <span class="text-default"><?php echo $nombre; ?></span>
                       <small class="text-muted d-block mt-1"><?php echo $perfil; ?></small>

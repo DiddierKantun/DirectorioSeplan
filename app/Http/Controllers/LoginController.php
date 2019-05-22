@@ -29,7 +29,7 @@ class LoginController extends Controller
 
 
             if ($usuarios->first()->estatus == 1) {
-                
+
                 if( $usuarios->first()->correo_usuario == $correo_usuario){
 
                     if ($contrasenia == $passbd) {
@@ -58,7 +58,7 @@ class LoginController extends Controller
 
                         Session::flash('message', 'Por favor verifique su contraseña');
                         return view('login');
-                    } 
+                    }
                 }else{
 
                     Session::flash('message', 'Por favor verifique su correo electronico');
@@ -70,13 +70,13 @@ class LoginController extends Controller
 
                 Session::flash('message', 'El usuario ingresado no existe');
                 return view('login');
-            }                                 
+            }
         }
         else{
 
             Session::flash('message', 'Se a producido un error');
             return view('login');
-        }       
+        }
     }
 
     public function logout()

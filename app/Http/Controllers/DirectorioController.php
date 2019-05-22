@@ -11,84 +11,83 @@ class DirectorioController extends Controller
     public function index()
     {
         $dependencias = Sector::join('dependencia', 'dependencia.id_sector', 'sector.id_sector')->where('dependencia.estatus', '=', 1)->get();
-        
+
         $cadena = '';
          foreach($dependencias as $dep){
             $cadena .= "<tr>
-            <th>".$dep->id_dependencia."</th>
-            <th>".$dep->nombre_sector."</th>
-            <th>".$dep->siglas_dependencia."</th>                      
-            <th>".$dep->nombre_dependencia."</th>
-            <th>".$dep->calle_num." ".$dep->cruzamientos." ".$dep->colonia."</th>";
+            <td>".$dep->id_dependencia."</td>
+            <td>".$dep->nombre_sector."</td>
+            <td>".$dep->siglas_dependencia."</td>
+            <td>".$dep->nombre_dependencia."</td>
+            <td>".$dep->calle_num." ".$dep->cruzamientos." ".$dep->colonia."</td>";
 
             $personas = Persona::join('dependencia', 'persona.id_dependencia', 'dependencia.id_dependencia')->where('persona.id_dependencia', '=', $dep->id_dependencia)->where('persona.estatus', '=', 1)->get();
-            
+
             $filas = $personas->count();
-            
+
             foreach ($personas as $per){
-                $cadena .="<th>".$per->cargo_persona."</th>
-                <th>".$per->titulo_persona."</th>
-                <th>".$per->nombre_persona.' '.$per->apepat_persona. ' '. $per->apemat_persona ."</th>                
-                <th>".$per->correo_institucional. "</th>
-                <th>".$per->correo_personal."</th>
-                <th>".$per->tel_institucional."</th>
-                <th>".$per->tel_personal."</th>";
-                 
+                $cadena .="<td>".$per->cargo_persona."</td>
+                <td>".$per->titulo_persona."</td>
+                <td>".$per->nombre_persona.' '.$per->apepat_persona. ' '. $per->apemat_persona ."</td>
+                <td>".$per->correo_institucional. "</td>
+                <td>".$per->correo_personal."</td>
+                <td>".$per->tel_institucional."</td>
+                <td>".$per->tel_personal."</td>";
+
             }
-                        
+
             if ($filas == 0) {
-                $cadena .= "<th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>";
-                $cadena .= "<th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>";
-                $cadena .= "<th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>";
+                $cadena .= "<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>";
+                $cadena .= "<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>";
+                $cadena .= "<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>";
             }
 
             if ($filas == 1){
-                $cadena .= "<th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>";
-                $cadena .= "<th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>";
+                $cadena .= "<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>";
+                $cadena .= "<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>";
             }
 
-            if ($filas == 2) {               
-                $cadena .= "<th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>";
+            if ($filas == 2) {
+                $cadena .= "<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>";
             }
 
-            $cadena .="<th></th>
-            </tr>";
+            $cadena .="</tr>";
         }
         return view('Directorio.directorio', compact('cadena'));
     }
