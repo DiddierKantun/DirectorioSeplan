@@ -84,4 +84,9 @@ class Sector extends Model
 
         return Session::flash('message', 'Sector agregado nuevamente');
     }
+
+    public static function showdependencia(){
+
+        return Sector::join('dependencia', 'dependencia.id_sector', 'sector.id_sector')->where('dependencia.estatus', '=', 1)->get();
+    }
 }

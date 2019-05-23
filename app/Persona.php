@@ -167,4 +167,9 @@ class Persona extends Model
 
         return Session::flash('message', 'Persona agregada nuevamente');
     }
+
+    public static function showdependenciapersona($dep){
+
+        return Persona::join('dependencia', 'persona.id_dependencia', 'dependencia.id_dependencia')->where('persona.id_dependencia', '=', $dep->id_dependencia)->where('persona.estatus', '=', 1)->get();
+    }
 }

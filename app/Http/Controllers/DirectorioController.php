@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Sector;
 use App\Persona;
+use App\Dependencia;
 
 use Illuminate\Http\Request;
 
@@ -10,7 +11,10 @@ class DirectorioController extends Controller
 {
     public function index()
     {
-        $dependencias = Sector::join('dependencia', 'dependencia.id_sector', 'sector.id_sector')->where('dependencia.estatus', '=', 1)->get();
+        $sector = Sector::estatusactivo();
+        $dependencia = Dependencia::dependenciasactiva();
+
+        $dependencias = Sector::showdependencia();
 
         $cadena = '';
          foreach($dependencias as $dep){
@@ -21,7 +25,7 @@ class DirectorioController extends Controller
             <td>".$dep->nombre_dependencia."</td>
             <td>".$dep->calle_num." ".$dep->cruzamientos." ".$dep->colonia."</td>";
 
-            $personas = Persona::join('dependencia', 'persona.id_dependencia', 'dependencia.id_dependencia')->where('persona.id_dependencia', '=', $dep->id_dependencia)->where('persona.estatus', '=', 1)->get();
+            $personas = Persona::showdependenciapersona($dep);
 
             $filas = $personas->count();
 
@@ -89,6 +93,6 @@ class DirectorioController extends Controller
 
             $cadena .="</tr>";
         }
-        return view('Directorio.directorio', compact('cadena'));
+        return view('Directorio.directorio', compact('cadena','sector','dependencia'));
     }
 }

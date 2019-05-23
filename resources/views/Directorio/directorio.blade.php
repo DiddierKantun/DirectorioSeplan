@@ -9,20 +9,32 @@
                   </div>
                   <div class="card-body">
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                       <div class="form-group">
                         <label class="form-label">Sector</label>
-                        <select  id = "sector" name = "sector"  class = "form-control">
-								<option value = "">Selecciona un sector...</option>
-							</select>
+                        <select name="dependencia" class="form-control custom-select">
+                            <option value="">Seleccionar...</option>
+                              @foreach($sector as $sec)
+                              <option value="{{ $sec->id_sector }}"> {{ $sec->nombre_sector }}</option>
+                              @endforeach
+                            </select>
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-6 col-md-5">
                       <div class="form-group">
                         <label class="form-label">Dependencia</label>
-                        <select  id = "sector" name = "sector"  class = "form-control">
-								<option value = "">Selecciona una dependencia...</option>
-							</select>
+                        <select name="dependencia" class="form-control custom-select">
+                            <option value="">Seleccionar...</option>
+                              @foreach($dependencia as $depen)
+                              <option value="{{ $depen->id_dependencia }}"> {{ $depen->nombre_dependencia }}</option>
+                              @endforeach
+                            </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                      <div class="form-group">
+                        <label class="form-label"></label>
+                        <button style="" type="submit" class="btn btn-info ml-auto">Buscar</button>
                       </div>
                     </div>
                 </div>
