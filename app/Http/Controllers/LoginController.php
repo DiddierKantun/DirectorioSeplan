@@ -23,10 +23,10 @@ class LoginController extends Controller
         $contrasenia = $request->input('contra');
 
         $usuarios = Usuario::join('perfil', 'usuario.id_perfil', 'perfil.id_perfil')->where('usuario.correo_usuario', '=', $correo_usuario)->get();
-        $passbd = Crypt::decrypt($usuarios->first()->contrasenia);
 
         if($usuarios->count()>=1){
 
+            $passbd = Crypt::decrypt($usuarios->first()->contrasenia);
 
             if ($usuarios->first()->estatus == 1) {
 

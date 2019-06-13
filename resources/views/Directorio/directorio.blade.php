@@ -4,6 +4,7 @@
 @section('contenido')
 <div class="col-12">
                 <form action="" method="" class="card">
+                  @csrf
                   <div class="card-header">
                   <h3 class="card-title">Filtros</h3>
                   </div>
@@ -39,7 +40,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-success ml-auto">Exportar excel</button>
+                    <a href="{{ Route('directorio.excel') }}" type="submit" class="btn btn-success ml-auto">Exportar excel</a>
                 </div>
               </form>
 

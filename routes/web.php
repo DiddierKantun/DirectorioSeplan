@@ -39,6 +39,7 @@ Route::resource('persona', 'PersonaController');
 Route::post('persona/{id_persona}', 'PersonaController@updatestatus')->name('persona.updatestatus');
 
 Route::get('directorio', 'DirectorioController@index')->name('directorio.index');
+Route::get('directorio/excel', 'DirectorioController@excel')->name('directorio.excel');
 
 Route::post('login', 'loginController@login')->name('login.index');
 Route::get('logout', 'loginController@logout')->name('login.borrar');

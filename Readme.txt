@@ -1,4 +1,4 @@
-Como usar GIT
+git statusComo usar GIT
 
 Primero siempre hacer un
 
